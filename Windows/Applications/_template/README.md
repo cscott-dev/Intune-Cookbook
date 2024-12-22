@@ -4,17 +4,37 @@
 | --------------------- | ------------------------------------------------------------------------------------ |
 | **Description**       | {Description}                                                                        |
 | **Publisher**         | {Publisher}                                                                          |
-| **Developer**         | Aryon Pty Ltd                                                                        |
+| **Developer**         | Chris Scott (Aryon Pty Ltd)                                                          |
+| **Icon**              | ![App Icon]()                                                                        |
 | **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File {InstallScript}`   |
 | **Uninstall Command** | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File {UninstallScript}` |
 | **Detection**         | {DetectionMethod} - {DetectionPath}                                                  |
 
+## Template Checklist
+
+- [ ] **Install & Uninstall Scripts** have been modified and renamed to `Install-{AppName}` and `Uninstall-{AppName}.ps1`
+      respectively.
+- [ ] An **App Icon** has been created using an application like https://photopea.com/ to the below
+      specifications:
+   - The application icon should be a `.png` file sized 512 x 512 pixels. The application icon itself (within the
+     file) should be 256 x 256 pixels, and be displayed in the center of the image. This allows for a transparent
+     border in the image which improves consistency within the Company Portal.
+- [ ] The **README** file has been updated to include preperation information and further notes/processes as required
+      by the applications deployment process. This includes, but is not limited to:
+   - [ ] Update the **Prerequisites** section.\
+         If an installer is required to be downloaded for the package, note it here.
+   - [ ] Update the **Deployment Process** section.
+   - [ ] Update the **Notes** section.\
+         This should include information such as: *Requires access to `https[://]downloadurl[.]com` to download
+         installer*.
+   - [ ] **Delete this section**
+
 ## Prerequisites
 
-1. **This Repository**
-    Clone or download this repository.
-2. **Microsoft Win32 Content Prep Tool**
-    Download the tool from [this link](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool).
+1. **This Repository**\
+   Clone or download this repository.
+2. **Microsoft Win32 Content Prep Tool**\
+   Download the tool from [this link](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool).
 
 ## Deployment Process
 
@@ -44,4 +64,5 @@
 
 -   Use [Windows Sandbox](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-overview)
     or something similar to test local installation prior to deployment. (**NOTE:** You will need to create a
-    `%ProgramData%\Microsoft\IntuneManagementExtension\Logs` folder prior to installation for it to work).
+    `%ProgramData%\Microsoft\IntuneManagementExtension\Logs` folder prior to installation for it to work, due to the 
+    logging).
