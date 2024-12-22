@@ -4,6 +4,7 @@
 | --------------------- | ------------------------------------------------------------------------------------ |
 | **Description**       | {Description}                                                                        |
 | **Publisher**         | {Publisher}                                                                          |
+| **Developer**         | Aryon Pty Ltd                                                                        |
 | **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File {InstallScript}`   |
 | **Uninstall Command** | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File {UninstallScript}` |
 | **Detection**         | {DetectionMethod} - {DetectionPath}                                                  |
@@ -11,9 +12,9 @@
 ## Prerequisites
 
 1. **This Repository**
-   Clone or download this repository.
+    Clone or download this repository.
 2. **Microsoft Win32 Content Prep Tool**
-   Download the tool from [this link](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool).
+    Download the tool from [this link](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool).
 
 ## Deployment Process
 
