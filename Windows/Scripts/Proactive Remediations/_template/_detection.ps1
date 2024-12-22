@@ -27,8 +27,7 @@
 function Write-Log {
     <#
     .SYNOPSIS
-        Writes a CMTrace log to the %PROGRAMDATA%\Microsoft\IntuneManagementExtension\Logs\IntunePlatformScripts.log
-        file.
+        Writes a CMTrace log to the %PROGRAMDATA%\Microsoft\IntuneManagementExtension\Logs\IntuneRemediations.log file.
     .PARAMETER Message
         The message to write to the log.
     .PARAMETER Component
@@ -62,7 +61,7 @@ function Write-Log {
             $GLOBAL:ScriptLogPath = "$ENV:PROGRAMDATA\Microsoft\IntuneManagementExtension\Logs"
         }
         if ([String]::IsNullOrEmpty($GLOBAL:ScriptLogName)) {
-            $GLOBAL:ScriptLogName = "IntunePlatformScripts"
+            $GLOBAL:ScriptLogName = "IntuneRemediations"
         }
         $Path = (Join-Path -Path $GLOBAL:ScriptLogPath -ChildPath $GLOBAL:ScriptLogName) + '.log'
     }
