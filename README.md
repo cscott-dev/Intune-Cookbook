@@ -7,8 +7,7 @@
                                                                                                    
 ```
 
-This repository contains scripts, applications, configurations, and other Intune resources for managing devices across
-various platforms including macOS, Windows, Linux, iOS, and Android.
+This repository contains scripts, applications, configurations, and other Intune resources for managing devices across various platforms including macOS, Windows, Linux, iOS, and Android.
 
 ## Contents
 
@@ -33,13 +32,12 @@ This repository contains the following resources for each operating system:
     └───Scripts
         ├───Compliance Scripts
         ├───Platform Scripts
-        └───Proactive Remediations
+        └───Remediations
 ```
 
 ## Getting Started
 
-To get started with using these resources, clone the repository and navigate to the relevant directory for your
-platform.
+To get started with using these resources, clone the repository and navigate to the relevant directory for your platform.
 
 ```sh
 git clone https://github.com/cscott-dev/Intune-Resources.git
