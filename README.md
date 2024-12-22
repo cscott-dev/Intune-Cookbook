@@ -12,18 +12,29 @@ various platforms including macOS, Windows, Linux, iOS, and Android.
 
 ## Contents
 
--   **Scripts**: Automation scripts for device management.
--   **Applications**: Pre-packaged applications ready for deployment.
--   **Configurations**: Configuration profiles and settings.
--   **Resources**: Additional resources and documentation.
+This repository contains the following resources for each operating system:
 
-## Platforms Supported
-
--   **macOS**
--   **Windows**
--   **Linux**
--   **iOS**
--   **Android**
+```plaintext
+├───Android
+│   └───Configurations
+├───iOS
+│   └───Configurations
+├───Linux
+│   ├───Applications
+│   ├───Configurations
+│   └───Scripts
+├───macOS
+│   ├───Applications
+│   ├───Configurations
+│   └───Scripts
+└───Windows
+    ├───Applications
+    ├───Configurations
+    └───Scripts
+        ├───Compliance Scripts
+        ├───Platform Scripts
+        └───Proactive Remediations
+```
 
 ## Getting Started
 
