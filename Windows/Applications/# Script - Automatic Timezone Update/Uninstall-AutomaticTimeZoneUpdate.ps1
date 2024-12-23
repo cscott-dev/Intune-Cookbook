@@ -1,23 +1,19 @@
 <#PSScriptInfo
-.VERSION        0.1
+.VERSION        1.0
 .AUTHOR         Chris Scott (chris.scott@aryon.com.au)
 .COMPANYNAME    Aryon Pty Ltd
 .RELEASENOTES
-    0.1 - YYYY-MM-DD - Initial Script Creation
+    1.0 - 2024-12-23 - Initial Script Creation
 #>
 <#
 .SYNOPSIS
-    A brief synopsis of the script
+    Uninstalls the Automatic Timezone Update service.
 .DESCRIPTION
-    A longer description of the function, its purpose, common use cases, etc.
+    This script disables and stops the 'tzautoupdate' service, which is responsible for automatic timezone updates on 
+    Windows.
 .NOTES
-    Follow the PowerShell Best Practices and Style Guide:
-        https://github.com/PoshCode/PowerShellPracticeAndStyle/tree/master
+    This script is intended to be used as a Win32 app in Microsoft Intune.
 #>
-
-<#--- VARIABLES ---#>
-
-#* NOTE: Add uninstall script variables here.
 
 <#--- FUNCTIONS ---#>
 
@@ -90,4 +86,12 @@ function Write-Log {
 
 <#--- MAIN SCRIPT ---#>
 
-#* NOTE: Add main uninstall script code here.
+try {
+    Write-Log "Disabling the 'tzautoupdate' service..."
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\tzautoupdate' -Name 'Start' -Value '4'
+    Start-Service -Name 'tzautoupdate'
+    Write-Log "Disabled the 'tzautoupdate' service."
+} catch {
+    Write-Log "Failed to dinable the 'tzautoupdate' service: $($_.Exception.Message)" -LogLevel Error
+    exit 1
+}

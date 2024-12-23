@@ -3,7 +3,7 @@
 .AUTHOR         Chris Scott (chris.scott@aryon.com.au)
 .COMPANYNAME    Aryon Pty Ltd
 .RELEASENOTES
-    0.1 - XX/XX/XXXX - Initial Script Creation
+    0.1 - YYYY-MM-DD - Initial Script Creation
 #>
 <#
 .SYNOPSIS

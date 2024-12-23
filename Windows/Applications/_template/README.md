@@ -4,6 +4,7 @@
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | **Description**       | {Description}                                                                                                                   |
 | **Publisher**         | {Publisher}                                                                                                                     |
+| **Version**           | {Version}                                                                                                                       |
 | **Developer**         | Chris Scott (Aryon Pty Ltd)                                                                                                     |
 | **Icon**              | <img src="https://github.com/cscott-dev/Intune-Resources/blob/main/Windows/Applications/_template/icon.png?raw=true" width=100> |
 | **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File {InstallScript}`                                              |
