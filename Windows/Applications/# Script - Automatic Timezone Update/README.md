@@ -1,15 +1,15 @@
 # # Script - Automatic Time Zone Update
 
-| Field                 | Content                                                                                                  |
-| --------------------- | -------------------------------------------------------------------------------------------------------- |
-| **Description**       | This package enables the `tzautoupdate` service. Requires Location Services to be enabled.               |
-| **Publisher**         | Aryon Pty Ltd                                                                                            |
-| **Version**           | 1.0                                                                                                      |
-| **Developer**         | Chris Scott (Aryon Pty Ltd)                                                                              |
-| **Icon**              |                                                                                                          |
-| **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Install-AutomaticTimeZoneUpdate.ps1`   |
-| **Uninstall Command** | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Uninstall-AutomaticTimeZoneUpdate.ps1` |
-| **Detection**         | Registry - `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\tzautoupdate\Start = 3`                 |
+| Field                 | Content                                                                                                                                                                |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Description**       | This package enables the `tzautoupdate` service. Requires Location Services to be enabled.                                                                             |
+| **Publisher**         | Aryon Pty Ltd                                                                                                                                                          |
+| **Version**           | 1.0                                                                                                                                                                    |
+| **Developer**         | Chris Scott (Aryon Pty Ltd)                                                                                                                                            |
+| **Icon**              | <img src="https://github.com/cscott-dev/Intune-Resources/blob/main/Windows/Applications/%23%20Script%20-%20Automatic%20Timezone%20Update/icon.png?raw=true" width=100> |
+| **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Install-AutomaticTimeZoneUpdate.ps1`                                                                 |
+| **Uninstall Command** | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Uninstall-AutomaticTimeZoneUpdate.ps1`                                                               |
+| **Detection**         | Registry - `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\tzautoupdate\Start = 3`                                                                               |
 
 ## Prerequisites
 
@@ -18,7 +18,8 @@
 2. **Microsoft Win32 Content Prep Tool**\
    Download the tool from [this link](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool).
 3. **Location Services must be enabled**\
-   The following setting must be configured on the device(s) for this script to work:
+   The following setting must be configured on the device(s) for this script to work:\
+   <img src="https://github.com/cscott-dev/Intune-Resources/blob/main/Windows/Applications/%23%20Script%20-%20Automatic%20Timezone%20Update/setting.png?raw=true" width=600>
 
 ## Deployment Process
 
