@@ -21,11 +21,11 @@
      border in the image which improves consistency within the Company Portal.
 - [ ] The **README** file has been updated to include preperation information and further notes/processes as required
       by the applications deployment process. This includes, but is not limited to:
-   - [ ] Update the **Prerequisites** section.\
-         If an installer is required to be downloaded for the package, note it here.
+   - [ ] Update the **Prerequisites** section.
+      > If an installer is required to be downloaded for the package, note it here.
    - [ ] Update the **Deployment Process** section.
-   - [ ] Update the **Notes** section.\
-         This should include information such as: *Requires access to `https[://]downloadurl[.]com` to download
+   - [ ] Update the **Notes** section.
+      > This should include information such as: *Requires access to `https[://]downloadurl[.]com` to download
          installer*.
    - [ ] **Delete this section**
 

@@ -11,7 +11,7 @@ This repository contains scripts, applications, configurations, and other Intune
 
 ## Contents
 
-This repository contains the following resources for each operating system:
+This repository contains the following resources for each **operating** system:
 
 ```plaintext
 ├───Android
@@ -43,3 +43,5 @@ To get started with using these resources, clone the repository and navigate to 
 git clone https://github.com/cscott-dev/Intune-Resources.git
 cd Intune-Resources
 ```
+
+### Importing Configurations
