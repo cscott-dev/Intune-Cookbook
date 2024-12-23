@@ -16,7 +16,7 @@
       respectively.
 - [ ] An **App Icon** has been created using an application like https://photopea.com/ to the below
       specifications:
-   > The application icon should be a `.png` file sized 512 x 512 pixels. The application icon itself (within the
+   - The application icon should be a `.png` file sized 512 x 512 pixels. The application icon itself (within the
      file) should be 256 x 256 pixels, and be displayed in the center of the image. This allows for a transparent
      border in the image which improves consistency within the Company Portal.
 - [ ] The **README** file has been updated to include preperation information and further notes/processes as required
