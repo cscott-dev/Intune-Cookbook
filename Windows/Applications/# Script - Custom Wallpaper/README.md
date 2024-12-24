@@ -2,30 +2,14 @@
 
 | Field                 | Content                                                                                                                         |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **Description**       | {Description}                                                                                                                   |
-| **Publisher**         | {Publisher}                                                                                                                     |
-| **Version**           | {Version}                                                                                                                       |
+| **Description**       | Sets a default custom wallpaper that can be changed by the end-user.                                                            |
+| **Publisher**         | Aryon Pty Ltd                                                                                                                   |
+| **Version**           | 1.0                                                                                                                             |
 | **Developer**         | Chris Scott (Aryon Pty Ltd)                                                                                                     |
 | **Icon**              | <img src="https://github.com/cscott-dev/Intune-Resources/blob/main/Windows/Applications/_template/icon.png?raw=true" width=100> |
-| **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File {InstallScript}`                                              |
-| **Uninstall Command** | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File {UninstallScript}`                                            |
-| **Detection**         | {DetectionMethod} - {DetectionPath}                                                                                             |
-
-## Template Checklist
-
-- [ ] **Install & Uninstall Scripts** have been modified and renamed to `Install-{AppName}` and `Uninstall-{AppName}.ps1`
-      respectively.
-- [ ] An **App Icon** has been created using an application like https://photopea.com/ to the below specifications:
-   - The application icon should be a `.png` file sized 512 x 512 pixels. The application icon itself (within the file) should be 256 x 256 pixels, and be displayed in the center of the image. This allows for a transparent border in the image which improves consistency within the Company Portal.
-- [ ] The **README** file has been updated to include preperation information and further notes/processes as required
-      by the applications deployment process. This includes, but is not limited to:
-   - [ ] Update the **Prerequisites** section.
-      > If an installer is required to be downloaded for the package, note it here.
-   - [ ] Update the **Deployment Process** section.
-   - [ ] Update the **Notes** section.
-      > This should include information such as: *Requires access to `https[://]downloadurl[.]com` to download
-         installer*.
-   - [ ] **Delete this section**
+| **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Install-CustomWallpaper.ps1`                                  |
+| **Uninstall Command** | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Uninstall-CustomWallpaper.ps1`                                |
+| **Detection**         | File - `%SystemDrive%\Users\Public\Pictures\CustomWallpaper.png`                                                                |
 
 ## Prerequisites
 
@@ -33,10 +17,15 @@
    Clone or download this repository.
 2. **Microsoft Win32 Content Prep Tool**\
    Download the tool from [this link](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool).
+3. **Custom Wallpaper**\
+   A custom wallpaper with the filetype `.png`, recommended to be 1920 x 1080 pixels or larger, in a 16:9 ratio.
 
 ## Deployment Process
 
 ### 1. Prepare
+
+1. Download this folder from the repository.
+2. Move your custom wallpaper to this folder and rename to `CustomWallpaper.png`.
 
 ### 2. Package
 

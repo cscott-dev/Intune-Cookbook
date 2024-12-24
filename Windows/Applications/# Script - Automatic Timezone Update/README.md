@@ -39,8 +39,7 @@
 1. Go to **Microsoft Intune** (https://intune.microsoft.com/) and navigate to **Apps > All Apps > Add**.
 2. Select the **App Type** as **Windows App (Win32)** and click **Select**.
 3. Upload the `.intunewin` file generated in the previous step.
-4. Configure the app details using the table at the top of this document. Upload the `icon.png` file in this repository
-   as the application icon. Select **Next**.
+4. Configure the app details using the table at the top of this document. Upload the `icon.png` file in this repository as the application icon. Select **Next**.
 5. Configure the install and uninstall commands using the same table as the previous step. Select **Next**.
 6. Configure the detection method using the same table as the previous step. Select **Next**.
 7. Under **Assignments**, assign the app to the appropriate groups or users.
