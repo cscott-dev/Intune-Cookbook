@@ -1,10 +1,10 @@
 ```plaintext
-              ____      __                      ____                                           
-             /  _/___  / /___  ______  ___     / __ \___  _________  __  _______________  _____
-             / // __ \/ __/ / / / __ \/ _ \   / /_/ / _ \/ ___/ __ \/ / / / ___/ ___/ _ \/ ___/
-           _/ // / / / /_/ /_/ / / / /  __/  / _, _/  __(__  ) /_/ / /_/ / /  / /__/  __(__  ) 
-          /___/_/ /_/\__/\__,_/_/ /_/\___/  /_/ |_|\___/____/\____/\__,_/_/   \___/\___/____/  
-                                                                                                   
+              ____      __                      ______            __   __                __  
+             /  _/___  / /___  ______  ___     / ____/___  ____  / /__/ /_  ____  ____  / /__
+             / // __ \/ __/ / / / __ \/ _ \   / /   / __ \/ __ \/ //_/ __ \/ __ \/ __ \/ //_/
+           _/ // / / / /_/ /_/ / / / /  __/  / /___/ /_/ / /_/ / ,< / /_/ / /_/ / /_/ / ,<   
+          /___/_/ /_/\__/\__,_/_/ /_/\___/   \____/\____/\____/_/|_/_.___/\____/\____/_/|_|  
+
 ```
 
 This repository contains scripts, applications, configurations, and other Intune resources for managing devices across various platforms including macOS, Windows, Linux, iOS, and Android.
@@ -40,8 +40,8 @@ This repository contains the following resources for each **operating** system:
 To get started with using these resources, clone the repository and navigate to the relevant directory for your platform.
 
 ```sh
-git clone https://github.com/cscott-dev/Intune-Resources.git
-cd Intune-Resources
+git clone https://github.com/cscott-dev/Intune-Cookbook.git
+cd Intune-Cookbook
 ```
 
 ### Importing Configurations
