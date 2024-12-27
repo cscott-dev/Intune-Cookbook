@@ -4,7 +4,7 @@
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Description**       | Sets a default custom wallpaper that can be changed by the end-user.                                                                                       |
 | **Publisher**         | Aryon Pty Ltd                                                                                                                                              |
-| **Version**           | 1.0                                                                                                                                                        |
+| **Version**           | 0.1                                                                                                                                                        |
 | **Developer**         | Chris Scott (Aryon Pty Ltd)                                                                                                                                |
 | **Icon**              | <img src="https://github.com/cscott-dev/Intune-Cookbook/blob/main/Windows/Applications/%23%20Script%20-%20Custom%20Wallpaper/icon.png?raw=true" width=100> |
 | **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Install-CustomWallpaper.ps1`                                                             |
