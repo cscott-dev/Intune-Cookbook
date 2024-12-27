@@ -9,6 +9,7 @@
 | **Icon**              | <img src="https://github.com/cscott-dev/Intune-Resources/blob/main/Windows/Applications/%23%20Script%20-%20Automatic%20Timezone%20Update/icon.png?raw=true" width=100> |
 | **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Install-AutomaticTimeZoneUpdate.ps1`                                                                 |
 | **Uninstall Command** | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Uninstall-AutomaticTimeZoneUpdate.ps1`                                                               |
+| **Run As**            | System                                                                                                                                                                 |
 | **Detection**         | Registry - `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\tzautoupdate\Start = 3`                                                                               |
 
 ## Prerequisites

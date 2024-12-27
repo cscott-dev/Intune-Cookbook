@@ -47,4 +47,3 @@ cd Intune-Cookbook
 ### Importing Configurations
 
 Configuration files are JSON files that have been exported using the [IntuneManagement](https://github.com/Micke-K/IntuneManagement) tool and are imported the same way. To import a configuration, run the **IntuneManagement** tool, connect the tool to the Microsoft Intune tenant, and import the required JSON file. For more information, consult the [Documentation](https://github.com/Micke-K/IntuneManagement?tab=readme-ov-file#import).
-

@@ -139,4 +139,5 @@ catch {
     Write-Log "Failed to add $Script to Run Once: $($_.Exception.Message)" -LogLevel Error
     exit 4
 }
+
 #endregion
