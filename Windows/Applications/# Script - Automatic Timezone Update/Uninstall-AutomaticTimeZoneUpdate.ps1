@@ -12,11 +12,10 @@
     This script disables and stops the 'tzautoupdate' service, which is responsible for automatic timezone updates on 
     Windows.
 .NOTES
-    This script is intended to be used as a Win32 app in Microsoft Intune.
+    - This script is intended to be used as a Win32 app in Microsoft Intune.
 #>
 
-<#--- FUNCTIONS ---#>
-
+#region Functions
 function Write-Log {
     <#
     .SYNOPSIS
@@ -96,9 +95,9 @@ function Write-Log {
         }
     }
 }
+#endregion
 
-<#--- MAIN SCRIPT ---#>
-
+#region Main Logic
 try {
     Write-Log "Disabling the 'tzautoupdate' service..."
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\tzautoupdate' -Name 'Start' -Value '4'
@@ -109,3 +108,4 @@ catch {
     Write-Log "Failed to dinable the 'tzautoupdate' service: $($_.Exception.Message)" -LogLevel Error
     exit 1
 }
+#endgregion

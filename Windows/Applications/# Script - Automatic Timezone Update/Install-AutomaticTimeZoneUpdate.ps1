@@ -12,12 +12,11 @@
     This script enables and starts the Windows Time Zone Auto Update service (tzautoupdate). The service allows Windows
     to automatically update the system's time zone based on the device's current location.
 .NOTES
-    This script is intended to be used as a Win32 app in Microsoft Intune.
-    Location Services must be enabled on the device for the service to work correctly.
+    - This script is intended to be used as a Win32 app in Microsoft Intune.
+    - Location Services must be enabled on the device for the service to work correctly.
 #>
 
-<#--- FUNCTIONS ---#>
-
+#region Functions
 function Write-Log {
     <#
     .SYNOPSIS
@@ -97,9 +96,9 @@ function Write-Log {
         }
     }
 }
+#endregion
 
-<#--- MAIN SCRIPT ---#>
-
+#region Main Logic
 try {
     Write-Log "Enabling the 'tzautoupdate' service..."
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\tzautoupdate' -Name 'Start' -Value '3'
@@ -110,3 +109,4 @@ catch {
     Write-Log "Failed to enable the 'tzautoupdate' service: $($_.Exception.Message)" -LogLevel Error
     exit 1
 }
+#endgregion

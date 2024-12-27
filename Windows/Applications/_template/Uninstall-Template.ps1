@@ -11,8 +11,8 @@
 .DESCRIPTION
     A longer description of the function, its purpose, common use cases, etc.
 .NOTES
-    Follow the PowerShell Best Practices and Style Guide:
-        https://github.com/PoshCode/PowerShellPracticeAndStyle/tree/master
+    - Follow the PowerShell Best Practices and Style Guide:
+      https://github.com/PoshCode/PowerShellPracticeAndStyle/tree/master
 #>
 
 #region Functions
@@ -98,7 +98,5 @@ function Write-Log {
 #endregion
 
 #region Main Logic
-
 #* NOTE: Add main uninstall script code here.
-
 #endgregion

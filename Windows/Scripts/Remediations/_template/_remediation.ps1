@@ -14,8 +14,8 @@
     RUN AS: (System/User)
     CONTEXT: (64/32)-bit
 
-    Follow the PowerShell Best Practices and Style Guide:
-        https://github.com/PoshCode/PowerShellPracticeAndStyle/tree/master
+    - Follow the PowerShell Best Practices and Style Guide:
+      https://github.com/PoshCode/PowerShellPracticeAndStyle/tree/master
 #>
 
 #region Functions

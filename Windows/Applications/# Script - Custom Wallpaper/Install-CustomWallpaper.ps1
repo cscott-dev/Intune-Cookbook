@@ -7,11 +7,18 @@
 #>
 <#
 .SYNOPSIS
-    A brief synopsis of the script
+    Sets a custom wallpaper based on screen resolution and aspect ratio
 .DESCRIPTION
-    A longer description of the function, its purpose, common use cases, etc.
+    This script detects the primary monitor's resolution and aspect ratio, then sets an appropriate
+    wallpaper from a predefined set of images. It supports various aspect ratios including 16:9,
+    16:10, 21:9, and others. The script checks if updates are needed by comparing file hashes
+    and only updates when necessary.
 .NOTES
-    CREDIT: https://github.com/okieselbach/Intune/blob/master/Set-Wallpaper.ps1
+    - This script is intended to be used as a Win32 app in Microsoft Intune.
+    - The wallpaper images must be placed in the 'Wallpapers' subfolder of the script directory. The images
+      should be named according to their aspect ratio, e.g., '16x9.jpg', '16x10.jpg', '21x9.jpg', etc.
+    - This script is heavily based on https://github.com/okieselbach/Intune/blob/master/Set-Wallpaper.ps1. Thanks
+      Oliver!
 #>
 
 #region Assemblies
@@ -31,7 +38,6 @@ Add-Type @'
 #endregion
 
 #region Functions
-
 function Write-Log {
     <#
     .SYNOPSIS
@@ -236,7 +242,6 @@ function Set-Wallpaper {
 #endregion
 
 #region Main Logic
-
 Write-Log 'Starting custom wallpaper installation'
 
 if (Test-Path "$ENV:LOCALAPPDATA\Wallpaper.jpg") {
@@ -278,5 +283,4 @@ else {
 }
 
 Write-Log 'Completed custom wallpaper installation'
-
 #endregion
