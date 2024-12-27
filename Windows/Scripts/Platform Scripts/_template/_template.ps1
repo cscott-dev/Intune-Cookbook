@@ -23,7 +23,7 @@ function Write-Log {
     <#
     .SYNOPSIS
         Writes a CMTrace-compatible log entry to the 
-        %PROGRAMDATA%\Microsoft\IntuneManagementExtension\Logs\IntuneWin32Apps.log file.
+        %PROGRAMDATA%\Microsoft\IntuneManagementExtension\Logs\IntunePlatformScripts.log file.
     .PARAMETER Message
         The message to write to the log.
     .PARAMETER Component
@@ -58,8 +58,12 @@ function Write-Log {
         }
 
         # Set default log path and name if not defined
-        $GLOBAL:ScriptLogPath = $GLOBAL:ScriptLogPath ?? "$ENV:PROGRAMDATA\Microsoft\IntuneManagementExtension\Logs"
-        $GLOBAL:ScriptLogName = $GLOBAL:ScriptLogName ?? 'IntuneScripts'
+        if (-not $GLOBAL:ScriptLogPath) {
+            $GLOBAL:ScriptLogPath = "$ENV:PROGRAMDATA\Microsoft\IntuneManagementExtension\Logs"
+        }
+        if (-not $GLOBAL:ScriptLogName) {
+            $GLOBAL:ScriptLogName = 'IntunePlatformScripts'
+        }
         
         # Ensure log directory exists
         if (-not (Test-Path -Path $GLOBAL:ScriptLogPath)) {

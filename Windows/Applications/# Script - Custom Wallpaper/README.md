@@ -1,16 +1,16 @@
-# {Application Name}
+# # Script - Custom Wallpaper
 
-| Field                 | Content                                                                                                                         |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **Description**       | Sets a default custom wallpaper that can be changed by the end-user.                                                            |
-| **Publisher**         | Aryon Pty Ltd                                                                                                                   |
-| **Version**           | 1.0                                                                                                                             |
-| **Developer**         | Chris Scott (Aryon Pty Ltd)                                                                                                     |
-| **Icon**              | <img src="https://github.com/cscott-dev/Intune-Resources/blob/main/Windows/Applications/_template/icon.png?raw=true" width=100> |
-| **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Install-CustomWallpaper.ps1`                                  |
-| **Uninstall Command** | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Uninstall-CustomWallpaper.ps1`                                |
-| **Install Behaviour** | System                                                                                                                          |
-| **Detection**         | File - `%SystemDrive%\Users\Public\Pictures\CustomWallpaper.png`                                                                |
+| Field                 | Content                                                                                                                                                    |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Description**       | Sets a default custom wallpaper that can be changed by the end-user.                                                                                       |
+| **Publisher**         | Aryon Pty Ltd                                                                                                                                              |
+| **Version**           | 1.0                                                                                                                                                        |
+| **Developer**         | Chris Scott (Aryon Pty Ltd)                                                                                                                                |
+| **Icon**              | <img src="https://github.com/cscott-dev/Intune-Cookbook/blob/main/Windows/Applications/%23%20Script%20-%20Custom%20Wallpaper/icon.png?raw=true" width=100> |
+| **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Install-CustomWallpaper.ps1`                                                             |
+| **Uninstall Command** | `cmd.exe /c`                                                                                                                                               |
+| **Install Behaviour** | User                                                                                                                                                       |
+| **Detection**         | File - `%SystemDrive%\Users\%Username%\AppData\Local\Wallpaper.jpg`                                                                                        |
 
 ## Prerequisites
 
@@ -19,14 +19,15 @@
 2. **Microsoft Win32 Content Prep Tool**\
    Download the tool from [this link](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool).
 3. **Custom Wallpaper**\
-   A custom wallpaper with the filetype `.png`, recommended to be 1920 x 1080 pixels or larger, in a 16:9 ratio.
+   A customer wallpaper with the filetype `.jpg`, with a number of different aspect ratios (optional).
 
 ## Deployment Process
 
 ### 1. Prepare
 
 1. Download this folder from the repository.
-2. Move your custom wallpaper to this folder and rename to `CustomWallpaper.png`.
+2. Move your custom wallpaper(s) into the `\Wallpapers` directory using the aspect ratio (e.g. `16x9`, `32x9`, etc.) as the name of the file. Supported aspect ratios are below:
+   > **NOTE**: A file named `16x9.jpg` ***must*** exist for this script to work.
 
 ### 2. Package
 
@@ -41,7 +42,7 @@
 2. Select the **App Type** as **Windows App (Win32)** and click **Select**.
 3. Upload the `.intunewin` file generated in the previous step.
 4. Configure the app details using the table at the top of this document. Upload the `icon.png` file in this repository as the application icon. Select **Next**.
-5. Configure the install and uninstall commands using the same table as the previous step. Select **Next**.
+5. Configure the install and uninstall commands, as well as the install behaviour, using the same table as the previous step. Select **Next**.
 6. Configure the detection method using the same table as the previous step. Select **Next**.
 7. Under **Assignments**, assign the app to the appropriate groups or users.
 

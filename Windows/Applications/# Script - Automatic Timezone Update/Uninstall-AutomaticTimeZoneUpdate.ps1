@@ -20,67 +20,80 @@
 function Write-Log {
     <#
     .SYNOPSIS
-        Writes a CMTrace log to the %PROGRAMDATA%\Microsoft\IntuneManagementExtension\Logs\IntuneWin32Apps.log
-        file.
+        Writes a CMTrace-compatible log entry to the 
+        %PROGRAMDATA%\Microsoft\IntuneManagementExtension\Logs\IntuneWin32Apps.log file.
     .PARAMETER Message
         The message to write to the log.
     .PARAMETER Component
-        The component to write to the log. Defaults to the script name and line number.
+        The component name. Defaults to script name and line number.
     .PARAMETER LogLevel
-        The log level to write the message as. Defaults to "Information".
-        Valid values are "Verbose", "Information", "Warning", "Error".
+        The log level (Verbose, Information, Warning, Error). Defaults to "Information".
     .EXAMPLE
         Write-Log "Installing Package"
-            Writes a line with the "Information" log level.
-        Write-Log "Error: Failed to install: $($_.Exception.Message)" -LogLevel Error
-            Writes a line with the "Error" log level.
+        Write-Log "Installation Failed" -LogLevel Error
     #>
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $True, ValueFromPipeline = $True)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [AllowEmptyString()]
-        [String]$Message,
+        [string]$Message,
 
-        [Parameter(Mandatory = $False)]
-        [String]$Component = "$($MyInvocation.ScriptName | Split-Path -Leaf):$($MyInvocation.ScriptLineNumber)",
+        [Parameter(Mandatory = $false)]
+        [string]$Component = "$($MyInvocation.ScriptName | Split-Path -Leaf):$($MyInvocation.ScriptLineNumber)",
 
-        [Parameter(Mandatory = $False)]
-        [ValidateSet("Verbose", "Information", "Warning", "Error")]
-        [String]$LogLevel = "Information"
+        [Parameter(Mandatory = $false)]
+        [ValidateSet('Verbose', 'Information', 'Warning', 'Error')]
+        [string]$LogLevel = 'Information'
     )
 
     begin {
-        # Using global variables to easily overwrite it in main script.
-        if ([String]::IsNullOrEmpty($GLOBAL:ScriptLogPath)) {
+        # Define log levels mapping
+        $LogLevels = @{
+            'Verbose'     = 0
+            'Information' = 1
+            'Warning'     = 2
+            'Error'       = 3
+        }
+
+        # Set default log path and name if not defined
+        if (-not $GLOBAL:ScriptLogPath) {
             $GLOBAL:ScriptLogPath = "$ENV:PROGRAMDATA\Microsoft\IntuneManagementExtension\Logs"
         }
-        if ([String]::IsNullOrEmpty($GLOBAL:ScriptLogName)) {
-            $GLOBAL:ScriptLogName = "IntuneWin32Apps"
-        }
-        $Path = (Join-Path -Path $GLOBAL:ScriptLogPath -ChildPath $GLOBAL:ScriptLogName) + '.log'
-    }
-    process {
-        switch ($LogLevel) {
-            "Verbose" {
-                $LogLevelInteger = 0
-            }
-            "Information" {
-                $LogLevelInteger = 1
-            }
-            "Warning" {
-                $LogLevelInteger = 2
-            }
-            "Error" {
-                $LogLevelInteger = 3
-            }
+        if (-not $GLOBAL:ScriptLogName) {
+            $GLOBAL:ScriptLogName = 'IntuneWin32Apps'
         }
         
-        $Time = "$(Get-Date -Format HH:mm:ss).$((Get-Date).Millisecond)+000"
-        $Line = '<![LOG[{0}]LOG]!><time="{1}" date="{2}" component="{3}" context="" type="{4}" thread="" file="">'
-        $Format = $Message, $Time, (Get-Date -Format MM-dd-yyyy), $Component, $LogLevelInteger
-        $Line = $Line -f $Format
+        # Ensure log directory exists
+        if (-not (Test-Path -Path $GLOBAL:ScriptLogPath)) {
+            try {
+                New-Item -Path $GLOBAL:ScriptLogPath -ItemType Directory -Force | Out-Null
+            }
+            catch {
+                Write-Warning "Failed to create log directory: $_"
+                return
+            }
+        }
 
-        Add-Content -Value $Line -Path $Path -Force
+        $SCRIPT:LogPath = Join-Path -Path $GLOBAL:ScriptLogPath -ChildPath "$($GLOBAL:ScriptLogName).log"
+    }
+
+    process {
+        try {
+            $TimeGenerated = Get-Date
+            $Line = '<![LOG[{0}]LOG]!><time="{1}" date="{2}" component="{3}" context="" type="{4}" thread="" file="">' `
+                -f @(
+                $Message,
+                $TimeGenerated.ToString('HH:mm:ss.fff+000'),
+                $TimeGenerated.ToString('MM-dd-yyyy'),
+                $Component,
+                $LogLevels[$LogLevel]
+            )
+
+            Add-Content -Path $SCRIPT:LogPath -Value $Line -Force -ErrorAction Stop
+        }
+        catch {
+            Write-Warning "Failed to write to log file: $_"
+        }
     }
 }
 
@@ -91,7 +104,8 @@ try {
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\tzautoupdate' -Name 'Start' -Value '4'
     Start-Service -Name 'tzautoupdate'
     Write-Log "Disabled the 'tzautoupdate' service."
-} catch {
+}
+catch {
     Write-Log "Failed to dinable the 'tzautoupdate' service: $($_.Exception.Message)" -LogLevel Error
     exit 1
 }

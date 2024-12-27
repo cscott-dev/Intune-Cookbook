@@ -55,8 +55,12 @@ function Write-Log {
         }
 
         # Set default log path and name if not defined
-        $GLOBAL:ScriptLogPath = $GLOBAL:ScriptLogPath ?? "$ENV:PROGRAMDATA\Microsoft\IntuneManagementExtension\Logs"
-        $GLOBAL:ScriptLogName = $GLOBAL:ScriptLogName ?? 'IntuneWin32Apps'
+        if (-not $GLOBAL:ScriptLogPath) {
+            $GLOBAL:ScriptLogPath = "$ENV:PROGRAMDATA\Microsoft\IntuneManagementExtension\Logs"
+        }
+        if (-not $GLOBAL:ScriptLogName) {
+            $GLOBAL:ScriptLogName = 'IntuneWin32Apps'
+        }
         
         # Ensure log directory exists
         if (-not (Test-Path -Path $GLOBAL:ScriptLogPath)) {
