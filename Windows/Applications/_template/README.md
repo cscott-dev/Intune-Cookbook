@@ -9,7 +9,7 @@
 | **Icon**              | <img src="https://github.com/cscott-dev/Intune-Resources/blob/main/Windows/Applications/_template/icon.png?raw=true" width=100> |
 | **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File {InstallScript}`                                              |
 | **Uninstall Command** | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File {UninstallScript}`                                            |
-| **Run As**            | [System/User]                                                                                                                   |
+| **Install Behaviour** | [System/User]                                                                                                                   |
 | **Detection**         | {DetectionMethod} - {DetectionPath}                                                                                             |
 
 ## Template Checklist

@@ -9,7 +9,7 @@
 | **Icon**              | <img src="https://github.com/cscott-dev/Intune-Resources/blob/main/Windows/Applications/_template/icon.png?raw=true" width=100> |
 | **Install Command**   | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Install-CustomWallpaper.ps1`                                  |
 | **Uninstall Command** | `powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File Uninstall-CustomWallpaper.ps1`                                |
-| **Run As**            | System                                                                                                                          |
+| **Install Behaviour** | System                                                                                                                          |
 | **Detection**         | File - `%SystemDrive%\Users\Public\Pictures\CustomWallpaper.png`                                                                |
 
 ## Prerequisites
