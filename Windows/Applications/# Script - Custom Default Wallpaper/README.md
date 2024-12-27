@@ -29,7 +29,7 @@
 2. Move your custom wallpaper(s) into the `\Wallpapers` directory using the aspect ratio (e.g. `16x9`, `32x9`, etc.) as the name of the file. Supported aspect ratios are below:
 
 > [!IMPORTANT]
-> A file name `16x9.jpg` **must** exist in the `\Wallpapers` directory for the script to work.
+> A file named `16x9.jpg` **must** exist in the `\Wallpapers` directory for the script to work.
 
 ### 2. Package
 
